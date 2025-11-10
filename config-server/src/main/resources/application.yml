@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: pitchern-config-server
+  profiles:
+    active: ${profiles.active:local}
+    group:
+      local:
+        - local
+        - git-private
+        - keystore

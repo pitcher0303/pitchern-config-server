@@ -1,0 +1,6 @@
+[submodule "spring-compatibility"]
+	path = spring-compatibility
+	url = git@github.com:pitcher0303/spring-compatibility.git
+[submodule "pitchern-keystore"]
+	path = pitchern-keystore
+	url = git@github.com:pitcher0303/pitchern-keystore.git

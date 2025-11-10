@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: pitchern-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:pitcher0303/pitchern-config-repository.git
+          basedir: ./local-config-repository
+          ignore-local-ssh-settings: true
+          clone-on-start: true
+          search-paths: config/**

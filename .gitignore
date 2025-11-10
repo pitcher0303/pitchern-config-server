@@ -34,3 +34,6 @@ build/
 /mvnw
 /mvnw.cmd
 /.mvn/
+/config-clone-repository/\
+/config-server/.mvn/
+/local-config-repository/

@@ -1,10 +1,10 @@
-package com.pitchern.pitchernconfigserver;
+package com.pitchern.configserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PitchernConfigServerApplicationTests {
+class ConfigServerApplicationTests {
 
     @Test
     void contextLoads() {

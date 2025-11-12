@@ -33,14 +33,28 @@ git submodule update --init --recursive
 6. keystore 또한 노출 되면 안된다.
 7. keystore 를 private repository 로 올리고 git submodule 로 만들자!
 8. 어?? 그럼 4번의 ssh-private-key 도 암호화 하지 않고 7번의 private repository 에 올리면 되네?
-9. 4번 암호화 할 필요가 굳이 없으나 한번 해보기로 했다.
+9. 4번 암호화 할 필요가 굳이 없으나 암호화를 해보긴 했다. application-git-private.yml 에 암호화한 키가 들어가 있다.
 10. 끝
+
+## config-server 로드시
+1. application-local.yml 에서 `Git` 백엔드 임을 확인하고 `clone-on-start: true` 이므로 ssh clone 시작
+2. 설정된 repository 가 private 이며 ssh 구성이므로 ssh-private-key 를 찾음.
+3. `ignore-local-ssh-settings: true` 이므로 설정파일 내에서 private-key 를 찾음
+4. private-key 가 아래 처럼 `{cipher}` 로 암호화 되어 있으므로 keystore 를 찾음
+5. application-keystore.yml 에 명시된 keystore 를 찾고 `{cipher}` 값을 복호화함.
+6. `복호화된 private-key, passphrase` 를 가지고 `git clone` 시작
+7. 정상완료 후 server 시작 완료.
 
 > 아래는 실제 구성 했을 때 화면
 
 ![img.png](./docs/img/img.png)
 
-> pitchern-keystore 를 config-server 의 pom 설정에서 resource 루트로 설정한다.
+> application-git-private.yml 예시
+> > 그대로 public 에 올려도 되지만 어쨋든 양방향은 뚫을 수 있으니까...
+
+![img2.png](./docs/img/img2.png)
+
+> pitchern-keystore 를 config-server 의 pom 설정에서 resource 루트로 설정했다.
 
 ```xml
 <build>

@@ -1,6 +1,6 @@
 package com.pitchern.configserver;
 
-import com.spring.dynamic.port.compatibility.port.EnableDynamicPortCompatible;
+import com.spring.compatible.dynamic.port.port.EnableDynamicPortCompatible;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
